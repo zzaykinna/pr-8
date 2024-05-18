@@ -45,18 +45,24 @@ const Auth = observer(() => {
                 <Card style={{ width: 600 }} className="p-5">
                     <h2 className="m-auto">{isLogin ? 'Авторизация' : "Регистрация"}</h2>
                     <Form className="d-flex flex-column">
-                        <Form.Control
-                            className="mt-3"
+                        <label htmlFor="emailInput">Ваш email: </label>
+                        <input
+                            className="mt-1 mb-3"
+                            id="emailInput"
                             placeholder="Введите ваш email..."
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
+                            style={{marginTop: "10px", padding: "8px", width: "100%", border: "1px solid #ccc", borderRadius: "5px"}}
                         />
-                        <Form.Control
-                            className="mt-3"
+                        <label htmlFor="passwordInput">Введите ваш пароль: </label>
+                        <input
+                            className="mt-1"
+                            id="passwordInput"
                             placeholder="Введите ваш пароль..."
                             value={password}
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             type="password"
+                            style={{marginTop: "10px", padding: "8px", width: "100%", border: "1px solid #ccc", borderRadius: "5px"}}
                         />
                         <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
                             {isLogin ?

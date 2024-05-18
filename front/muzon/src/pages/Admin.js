@@ -45,6 +45,7 @@ const Admin = () => {
       <Image src={enot} className='mt-4 mx-auto d-block'
         width={300}
         height={300}
+        alt=''
       />
     </Container>
 

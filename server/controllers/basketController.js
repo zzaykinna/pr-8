@@ -24,21 +24,21 @@ class BasketController {
           status: "created",
         });
         await BasketProduct.create({ productId: product_id, basketId: newBasket.id });
-        return res.json({ message: "Product successfully added to the cart" });
+        return res.json({ message: "Товар успешно добавлен в корзину" });
       } else {
         const productBasket = await BasketProduct.findOne({
           where: { productId: product_id, basketId: basket.id },
         });
         if (productBasket) {
-          return next(ApiError.badRequest("Product already added to the cart"));
+          return next(ApiError.badRequest("Товар уже добавлен в корзину"));
         } else {
           await BasketProduct.create({ productId: product_id, basketId: basket.id });
-          return res.json({ message: "Product successfully added to the cart" });
+          return res.json({ message: "Товар успешно добавлен в корзину" });
         }
       }
     } catch (error) {
       next(
-        ApiError.internal("Error occurred while adding product to the cart")
+        ApiError.internal("Произошла ошибка при добавлении товара в корзину")
       );
     }
   }
@@ -64,7 +64,7 @@ class BasketController {
         });
       }
     } catch (error) {
-      return next(ApiError.badRequest("User's order not found"));
+      return next(ApiError.badRequest("Заказ пользователя не найден"));
     }
 
     return res.json(products);
@@ -82,19 +82,19 @@ class BasketController {
     try {
       let baskets;
       if (!status) {
-        next(ApiError.badRequest("Specify order status"));
+        next(ApiError.badRequest("Укажите статус заказа"));
       } else {
         baskets = await Basket.findAll({ where: { status: status } });
       }
       if (baskets.length === 0) {
         return res
           .status(404)
-          .json({ message: "Orders with the specified status not found" });
+          .json({ message: "Заказы с указанным статусом не найдены" });
       }
 
       return res.json(baskets);
     } catch (e) {
-      next(ApiError.internal("Error searching for orders"));
+      next(ApiError.internal("Ошибка при поиске заказов"));
     }
   }
 
@@ -102,15 +102,17 @@ class BasketController {
     try {
       const { status, userId } = req.body;
 
+
+
       const newStatus = await Basket.update(
         { status: status },
         { where: { userId: userId } }
       );
-
       return res.json(newStatus);
     } catch (e) {
       next(ApiError.badRequest(e.message));
     }
+    
   }
 }
 

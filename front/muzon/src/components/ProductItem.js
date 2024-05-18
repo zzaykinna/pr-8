@@ -15,7 +15,7 @@ const ProductItem = ({ product }) => {
     return (
         <Col md={6}  onClick={handleProductClick} className='mt-5 mx-auto'>
             <Card style={{ width: 300, cursor: 'pointer' }} border={"success"}>
-                <Image width={298} height={350} src={'http://localhost:5000/' + product.img} />
+                <Image width={298} height={350} src={'http://localhost:5000/' + product.img} alt=''/>
                 <div className="mt-2 d-flex justify-content-between align-items-center" style={{fontSize: '20px'}}>
                     <div>{product.name}</div>
                 </div>

@@ -22,7 +22,7 @@ const UserBasketItem = ({ basket }) => {
 
     <Col md={6}  onClick={handleClick} className='mt-5 mx-auto'>
             <Card style={{ width: 300, cursor: 'pointer' }} border={"success"}>
-                <Image width={300} height={350} src={'http://localhost:5000/' + basket.img} />
+                <Image width={300} height={350} src={'http://localhost:5000/' + basket.img} alt=""/>
                 <div className="mt-2 d-flex justify-content-between align-items-center" style={{fontSize: '20px'}}>
                     <div>{basket.name}</div>
                 </div>

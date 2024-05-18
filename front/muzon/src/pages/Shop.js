@@ -53,8 +53,8 @@ export default function Shop() {
       <div className='info' style={{ background: '#102804' }}>
         <div className='info-conteiner'>
           <div style={{ marginRight: '10vw' }}>
-            <h2>Адрес:</h2>
-            <p>г. Владимир, Большая Московская, д. 90А</p>
+            <h3>Адрес:</h3>
+            <h4>г. Владимир, Большая Московская, д. 90А</h4>
             <h2>Режим работы:</h2>
             <p>понедельник — суббота 10:00 - 20:00 <br></br>воскресенье 10:00 - 18:00</p>
 

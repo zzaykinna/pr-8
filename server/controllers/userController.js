@@ -2,6 +2,8 @@ const ApiError = require('../error/ApiError')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const {User, Basket} = require('../models/models')
+const MailService = require("./service/mail/mailer.service")
+const Vxod = require("./service/mail/mailer.service copy")
 
 const generateJwt = (id, email, role) => {
     return jwt.sign(
@@ -10,6 +12,7 @@ const generateJwt = (id, email, role) => {
         {expiresIn: '24h'}
     )
 }
+
 
 class UserController {
     async registration(req, res, next) {
@@ -25,6 +28,9 @@ class UserController {
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({email, role, password: hashPassword})
         const basket = await Basket.create({userId: user.id})
+        
+        MailService.sendTestMail(email);
+
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
     }
@@ -41,6 +47,8 @@ class UserController {
             return next(ApiError.internal('Указан неверный пароль'))
         }
 
+        
+        Vxod.sendTestMail(email);
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
     }

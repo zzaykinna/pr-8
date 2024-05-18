@@ -10,7 +10,7 @@ const NavBar = observer(() => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('token'); // Удаление токена из localStorage
+        localStorage.removeItem('token'); 
         user.setUser({});
         user.setIsAuth(false);
     };
@@ -21,7 +21,7 @@ const NavBar = observer(() => {
         <Navbar expand="lg" style={{ background: '#102804' }} variant='dark'>
             <Container className='header-container'>
                 <Navbar.Brand href="/" className='logo'>
-                    <img src={logotip} style={{ width: '10vw', marginRight: '40vw' }} alt="logo" />
+                    <img src={logotip} style={{ width: '120px', marginRight: '40vw' }} alt="logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

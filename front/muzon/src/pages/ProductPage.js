@@ -31,7 +31,7 @@ const ProductPage = () => {
     <Container className='mt-3'>
       <Row>
         <Col md={4} className='d-flex justify-content-center align-items-center'>
-          <Image width={300} height={300} src={'http://localhost:5000/' + product.img} />
+          <Image width={300} height={300} src={'http://localhost:5000/' + product.img} alt=''/>
         </Col>
         <Col md={4} className='d-flex justify-content-center align-items-center'>
           <Row>
